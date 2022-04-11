@@ -1,5 +1,5 @@
 #     WELCOME TO Open_Ports_Scaner
-#     Script is written for UNIX OS. Running on Windows may cause problems with UTF-8 encoding
+#     Script is written for UNIX OS. Running on Windows may cause UTF-8 encoding issues.
 #     requirements   python3, scapy
 #     use -h flag to get help
 
