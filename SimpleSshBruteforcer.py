@@ -1,5 +1,5 @@
 #     WELCOME TO SIPLESSHBRUTEFORCER
-#     Script is written for UNIX OS. Running on others may cause problems with wordlist path or encoding
+#     Script is written for UNIX OS. Running on others may cause path or encoding issues
 #     requirements   python3, paramiko
 import paramiko
 import sys
