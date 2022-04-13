@@ -36,7 +36,7 @@ def scanport(port, target):
             resp = sr(packet2, timeout=0.5)
             return True
 
-if __name__ == '__main__':
+def main():
     args = sys.argv
     if "-h" in args or len(args)<2 or len(args)>4:
         print("USAGE:   python Open_Ports_scaner.py <targetIP>\nOPTIONAL: set port range -r <min>,<max> (default is 1,1024)")
@@ -61,3 +61,6 @@ if __name__ == '__main__':
 
         else:
             print("target host seems dead...")
+    
+if __name__ == '__main__':
+    main()
