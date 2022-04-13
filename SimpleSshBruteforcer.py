@@ -59,9 +59,8 @@ def bruteforce(target, port, pas, paslist, log, loglist):
             print(f'succesfuly conected with creds(log:pas) {log}:{pas}')
 
     sshServer.close()
-
-
-if __name__ == '__main__':
+    
+def main():
     args = sys.argv
     if len(args) < 6 or "-h" in args:
         print("USAGE    python SimpleSshBruteforcer <ip> -l/L <login/pathtologinlist> -p/P <password/pathtopasslist>\nOPTIONAL  -port (default is 22)")
@@ -84,3 +83,6 @@ if __name__ == '__main__':
             loglist = True
 
         bruteforce(target, port, pas, paslist, log, loglist)
+
+if __name__ == '__main__':
+    main()
