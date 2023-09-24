@@ -1,4 +1,8 @@
-﻿#variables
+# Here's a script that i used to automatically configure virtualbox network interfaces on students' workstations for the lab on "advanced network penetration testing" training
+
+# Requirements: PowerShell ExecutionPolicy = RemoteSigned
+
+# Variables
 $NETMASK = "255.255.255.0"
 $InterfaceNames = @("VirtualBox Host-Only Ethernet Adapter", "VirtualBox Host-Only Ethernet Adapter #2", "VirtualBox Host-Only Ethernet Adapter #3")
 $IPAddresses = @("192.168.71.100", "192.168.72.100", "192.168.12.100")
@@ -43,7 +47,8 @@ foreach ($drive in $drives) {
 
             # Check if there's a DHCP server for this interface
             $dhcpExist = & $VBoxManagePath list dhcpservers | Where-Object {$_ -match $INTERFACE}
-
+            
+            # If yes, then remove it
             if ($dhcpExist) {
                 # Disable the DHCP server for this interface
                 & $VBoxManagePath dhcpserver remove --ifname $INTERFACE
@@ -51,6 +56,8 @@ foreach ($drive in $drives) {
 
             Write-Output "Network interface $INTERFACE has been configured with IP address $TARGET_IP."
         }
+        break
+        
     } else {
         Write-Error "VBoxManage.exe not found on $drive"
     }
